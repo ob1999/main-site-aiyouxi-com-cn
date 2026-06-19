@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ob1999.github.io/main-site-aiyouxi-com-cn/sitemap.xml
