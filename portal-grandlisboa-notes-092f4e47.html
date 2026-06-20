@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快速识别 · 澳门新葡京 · 门户介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f5f3ef;
+            color: #1f2a36;
+            line-height: 1.5;
+        }
+
+        /* 深色头图 — 故事开场 */
+        .hero {
+            background: linear-gradient(145deg, #0c1a2b 0%, #162b3f 100%);
+            color: #f0ede8;
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #cb9e5e, #eac784, #cb9e5e);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .hl {
+            color: #eac784;
+            font-weight: 600;
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 1.2rem auto 0;
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+
+        /* 正文区 — 浅色背景，清晰层次 */
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 4rem;
+        }
+
+        .intro-block {
+            font-size: 1.05rem;
+            margin-bottom: 2.8rem;
+            border-left: 4px solid #cb9e5e;
+            padding-left: 1.2rem;
+            background: #faf9f6;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .intro-block p {
+            margin-bottom: 0.65rem;
+        }
+
+        .intro-block p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin: 2.2rem 0 1.2rem;
+            color: #1c2a3a;
+            border-bottom: 2px solid #e5ded5;
+            padding-bottom: 0.4rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.8rem 0 2.5rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 1px 6px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.2s, transform 0.1s;
+            border: 1px solid #ece6de;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .feature-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #162b3f;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-card p {
+            color: #324a5e;
+            font-size: 0.96rem;
+        }
+
+        .badge-icon {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #cb9e5e;
+            border-radius: 10px;
+            margin-right: 4px;
+        }
+
+        .muted-note {
+            background: #f2efe9;
+            padding: 1.2rem 1.6rem;
+            border-radius: 40px 12px 12px 40px;
+            margin: 2.2rem 0 1.8rem;
+            color: #2f3e4c;
+            font-size: 1rem;
+            border-left: 6px solid #a5834b;
+        }
+
+        .muted-note strong {
+            color: #162b3f;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 2.8rem;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.6rem 1.8rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e3dbd1;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px dashed #ddd6cc;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            color: #1f2a36;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #cb9e5e;
+        }
+
+        .faq-mini p {
+            margin-top: 0.3rem;
+            color: #3e4f5e;
+        }
+
+        .closing {
+            border-top: 1px solid #dfd7cd;
+            padding-top: 1.8rem;
+            margin-top: 2.5rem;
+            font-size: 1rem;
+            text-align: left;
+            color: #344555;
+        }
+
+        .closing a {
+            color: #b3863a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .closing a:hover {
+            border-bottom-color: #b3863a;
+        }
+
+        .inline-link {
+            color: #b3863a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #b3863a;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .container {
+                padding: 2rem 1.2rem 3rem;
+            }
+            .faq-mini {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .hero {
+                padding: 3rem 1.2rem 2.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .intro-block {
+                font-size: 0.98rem;
+                padding-left: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 开头短句 + 深色氛围 -->
+    <div class="hero">
+        <div class="hero-sub">—— 澳门 · 地标门户 ——</div>
+        <h1>想快速了解 <span class="hl">澳门新葡京</span>？<br>从这里开始就对了</h1>
+        <p>一个聚焦于酒店、娱乐与城市体验的信息集成页面——不绕弯，直指核心。</p>
+    </div>
+
+    <div class="container">
+
+        <!-- 承接段落：直接说明网站用途 -->
+        <div class="intro-block">
+            <p>如果你第一次来到<strong> portal-grandlisboa.com</strong>，最关心的问题往往是：<em>这是什么网站？用它做什么？</em> 答案很简洁——它是一个围绕「澳门新葡京」主题整理的综合信息界面，把实用场景、服务脉络与城市文化符号浓缩在一起。</p>
+            <p>无论你是计划行程的旅人，还是对澳门地标抱有好奇的读者，都能在这里找到结构清晰的指引。页面不堆砌无效链接，只呈现真正能帮你缩短认知距离的内容。</p>
+        </div>
+
+        <!-- 特点列表：故事中段 -->
+        <h2 class="section-title">· 四个特点 · 一眼够用</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3><span class="badge-icon"></span> 场景分类</h3>
+                <p>住宿、餐饮、休闲动线按真实使用逻辑编排，不是冷冰冰的功能罗列。</p>
+            </div>
+            <div class="feature-card">
+                <h3><span class="badge-icon"></span> 克制但完整</h3>
+                <p>不滥用弹窗、不堆砌 Banner，每一条信息都经过筛选，密度与可读性平衡。</p>
+            </div>
+            <div class="feature-card">
+                <h3><span class="badge-icon"></span> 轻量响应</h3>
+                <p>从大屏到手机，段落与卡片自动适配，阅读体验不会因为设备而打折。</p>
+            </div>
+            <div class="feature-card">
+                <h3><span class="badge-icon"></span> 地标视角</h3>
+                <p>以澳门新葡京所在区域的文化背景为锚点，帮使用者建立方位感与场所认知。</p>
+            </div>
+        </div>
+
+        <!-- 场景提示 + 自然嵌入链接 -->
+        <div class="muted-note">
+            <strong>📍 场景提示：</strong> 如果你正在做澳门旅行功课，或者想了解酒店配套、交通接驳以及周边景点脉络，<a href="https://portal-grandlisboa.com" class="inline-link">澳门新葡京</a>这个门户页面所提供的摘要式信息会很实用。每个模块都对应真实服务类型，不作夸张渲染。
+        </div>
+
+        <!-- FAQ 摘要：简短问答，保持信息密度 -->
+        <div class="faq-mini">
+            <h3 style="font-weight:500; margin-bottom:0.7rem; font-size:1.15rem;">📌 常见疑问 · 快速扫描</h3>
+            <details>
+                <summary>这个页面与官方预订系统有什么关系？</summary>
+                <p>它扮演的是信息索引角色——聚合功能场景、非官方预订入口。你可以在了解框架后，再通过页面内嵌的锚点跳转到具体服务说明区域。</p>
+            </details>
+            <details>
+                <summary>内容会不会经常变动？</summary>
+                <p>页面结构稳定，但特色卡片和场景段落会随季节与活动做微调，确保参考价值。所有更新均基于澳门新葡京的公开运营信息。</p>
+            </details>
+            <details>
+                <summary>我需要注册或登录吗？</summary>
+                <p>完全不需要。整个门户页面是公开且无帐号门槛的，打开即读，方便快速判断是否符合你的需求。</p>
+            </details>
+        </div>
+
+        <!-- 温和结尾 + 重申链接自然句 -->
+        <div class="closing">
+            <p>总之，如果你正在搜索与<strong>澳门新葡京</strong>相关的综合信息，这个页面提供了一个不花哨但结构清晰的起点。把标签页收藏好，下一次想了解细节时，直接回来翻看场景卡片或 FAQ 摘要就行。</p>
+            <p style="margin-top: 0.6rem;">若需要查看完整信息地图，随时可以再次访问 <a href="https://portal-grandlisboa.com">澳门新葡京</a> — 内容因需而设，不冗余。</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
