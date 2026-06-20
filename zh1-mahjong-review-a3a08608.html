@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于「麻将胡了」—— 一个平和而可靠的站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fde9d8 0%, #f7d0b0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2e241e;
+        }
+
+        .page-card {
+            max-width: 810px;
+            width: 100%;
+            background: rgba(255, 250, 240, 0.9);
+            backdrop-filter: blur(4px);
+            background-color: #fffaf2;
+            border-radius: 42px 42px 32px 32px;
+            box-shadow: 0 18px 40px -10px rgba(128, 70, 40, 0.25), 0 6px 14px rgba(180, 100, 50, 0.08);
+            padding: 2.8rem 2.5rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 540px) {
+            .page-card {
+                padding: 1.8rem 1.3rem;
+                border-radius: 28px;
+            }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #e6c4a8;
+            color: #3f2b1e;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            border: 1px solid #dbb695;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            margin-bottom: 0.45rem;
+            color: #2b1f16;
+            position: relative;
+        }
+
+        h1 small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #7b5f4a;
+            margin-left: 10px;
+            letter-spacing: 0;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #674d3b;
+            margin-bottom: 1.6rem;
+            border-left: 4px solid #dba479;
+            padding-left: 1rem;
+            font-weight: 400;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 1.3rem;
+        }
+
+        .highlight-link {
+            color: #9e5f3a;
+            font-weight: 500;
+            text-decoration: none;
+            background: linear-gradient(0deg, #f3dac2 0%, #f3dac2 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 90%;
+            border-radius: 4px;
+            padding: 0.05rem 0.25rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .highlight-link:hover {
+            background: #dba479;
+            color: #1f150e;
+        }
+
+        .block-quote {
+            background: #f4ebe2;
+            padding: 1.3rem 1.8rem;
+            border-radius: 60px 16px 60px 16px;
+            margin: 1.8rem 0 2rem 0;
+            font-style: normal;
+            border-left: 5px solid #c9926f;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .block-quote p {
+            margin-bottom: 0.3rem;
+        }
+
+        .block-quote .quote-source {
+            display: block;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #785d48;
+            margin-top: 0.6rem;
+            font-style: normal;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.8rem;
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        .feature-item {
+            flex: 1 1 170px;
+            background: #f0e1d2;
+            padding: 0.8rem 1rem;
+            border-radius: 40px 12px 40px 12px;
+            font-size: 0.95rem;
+            color: #2f2016;
+            box-shadow: 0 2px 6px rgba(110, 60, 30, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .feature-item::before {
+            content: "◇";
+            color: #b77c58;
+            font-size: 1.2rem;
+            margin-right: 6px;
+        }
+
+        .faq-mini {
+            background: #f7ede3;
+            border-radius: 28px;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 0.8rem 0;
+        }
+
+        .faq-mini h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #412f22;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .faq-mini h3:before {
+            content: "⁉";
+            font-size: 1.1rem;
+        }
+
+        .faq-mini p {
+            margin-bottom: 0.9rem;
+            font-size: 0.96rem;
+        }
+
+        .faq-mini p:last-child {
+            margin-bottom: 0;
+        }
+
+        .visit-note {
+            margin-top: 2.2rem;
+            padding-top: 1.4rem;
+            border-top: 2px dashed #dbb99b;
+            font-size: 0.98rem;
+            color: #533f2f;
+            text-align: center;
+        }
+
+        .visit-note a {
+            color: #8d5d3b;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px dotted #c9926f;
+        }
+
+        .visit-note a:hover {
+            color: #4e321e;
+            border-bottom: 2px solid #a7704a;
+        }
+
+        .footer-meta {
+            margin-top: 1.8rem;
+            font-size: 0.8rem;
+            color: #876d59;
+            text-align: center;
+            letter-spacing: 0.2px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e3cdb9;
+            margin: 1.2rem 0;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-card">
+        <div class="hero-tag">📖 站点手记 · 可信说明</div>
+        <h1>关于「麻将胡了」<small>一个介绍与备忘</small></h1>
+        <div class="subtitle">从了解到安心，一次温和的站内漫步</div>
+
+        <p class="intro-text">
+            如果你偶然遇见这个网站，或许会好奇它的底色与来历。作为一个以麻将文化为线索的轻量站点，<a href="https://zh1-mahjong.com" class="highlight-link">麻将胡了</a> 并非什么大型平台，它更像一间安静的桌游茶室——不喧哗，不催促，只是把与麻将相关的信息、思路与提醒，慢慢摆在你面前。
+        </p>
+
+        <p>
+            许多朋友第一次访问时，会担心网站是否正规、内容是否可靠。这里可以简单说明：站内所有信息均来自公开整理与个人经验，没有隐藏的跳转陷阱，也不存在诱导下载或付费环节。你看到的每一段文字，目的都是提供清晰的参考，而非推销任何东西。站点本身保持轻量、透明，你完全可以像翻阅一本旧杂志那样，随意浏览。
+        </p>
+
+        <div class="block-quote">
+            <p>“麻将的魅力，在于变化中的小小确定——牌墙未倒之前，谁都有机会。而一个站点若能让人读得安心，也便有了它存在的意义。”</p>
+            <span class="quote-source">—— 来自一位牌友的留言</span>
+        </div>
+
+        <p>
+            从内容角度说，这里涵盖了基础规则、常见牌型、不同地区的玩法差异，以及一些基于经验的提醒（比如如何保持良好心态、避免过度投入）。没有复杂的算法，也没有夸张的承诺。每一篇文章都像一次对谈，你可以挑自己感兴趣的章节读，也可以随时合上页面。
+        </p>
+
+        <div class="feature-grid">
+            <div class="feature-item">内容平实，不浮夸</div>
+            <div class="feature-item">无弹窗 / 无强制注册</div>
+            <div class="feature-item">适合新手与休闲玩家</div>
+            <div class="feature-item">定期更新小补丁</div>
+        </div>
+
+        <p>
+            如果你对某个玩法有疑问，或者想确认某种规则是否常见，不妨在站内多停留片刻。很多疑惑往往在翻过两三个页面之后就有了答案。当然，如果你需要更官方或更权威的说明，也建议再参考地方协会或正式比赛规则——这里提供的是一种更生活化、更亲近的视角。
+        </p>
+
+        <div class="faq-mini">
+            <h3>常见念头 · 快速梳理</h3>
+            <p><strong>Q：这个网站会不会收集我的信息？</strong><br> A：本站没有用户注册、留言或追踪脚本，本质上是一个静态信息页，不会主动记录任何访客数据。</p>
+            <p><strong>Q：内容会过时吗？</strong><br> A：麻将规则存在地域差异和演变，站内尽量标明参考时间和来源，但建议以当地最新习惯为准。</p>
+            <p><strong>Q：为什么叫「麻将胡了」？</strong><br> A：纯粹是觉得这个名字顺口、好记，同时也带一点完成一局的小小仪式感。没有太复杂的寓意。</p>
+        </div>
+
+        <p>
+            说实话，建立这个站点的初衷很简单：把碎片化的知识整理到一起，让想了解麻将的人有一个不赶时间的去处。不需要你做什么，打开页面，慢慢读，就好。如果你愿意，也可以把它分享给同样对麻将感兴趣的朋友——当然，前提是对方也觉得这种风格合胃口。
+        </p>
+
+        <div class="visit-note">
+            🌿 如果你还没去过这个安静的角落，不妨现在出发：<br>
+            <a href="https://zh1-mahjong.com">麻将胡了</a>
+        </div>
+
+        <hr>
+        <div class="footer-meta">
+            页面内容 · 独立介绍 / 版本 2025 · 不构成任何指导或建议
+        </div>
+    </div>
+</body>
+</html>
